@@ -11,12 +11,25 @@ const SelectResturant = () => {
   const { id } = useParams();
   const seeResturant = useResturant(id);
   const dispatch = useDispatch();
+  var recom = 0;
 
   const addtoCart = (item) => {
     dispatch(additem(item));
   };
+  seeResturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map(
+    (i, index) => {
+      if (i.card.card.title == "Recommended") {
+        recom = index;
+      }
+      return i;
+    }
+  );
+  const cardTiles =
+    seeResturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[recom]
+      ?.card?.card?.itemCards;
+  const restaurantInfo = seeResturant?.cards[0]?.card?.card?.info;
 
-  return !seeResturant ? (
+  return !cardTiles ? (
     <ResturantShimmer />
   ) : (
     <>
@@ -25,20 +38,20 @@ const SelectResturant = () => {
           <div className="flex justify-between items-center text-white bg-[#1B1B1B] p-8 rounded-md">
             <div className="ml-8">
               <h1 className="m-3 text-2xl font-semibold">
-                {seeResturant?.name}
+                {restaurantInfo?.name}
               </h1>
               <h3 className="m-3 text-lg font-medium">
-                {seeResturant?.cuisines.join(", ")}
+                {restaurantInfo?.cuisines.join(", ")}
               </h3>
               <h3 className="m-3 text-lg">
-                {seeResturant?.area}, {seeResturant?.city}
+                {restaurantInfo?.areaName}, {restaurantInfo?.city}
               </h3>
               <h4 className="m-3 text-xl font-medium">
-                {seeResturant?.costForTwoMsg}
+                {restaurantInfo?.costForTwoMessage}
               </h4>
               <p
                 className={`flex items-center my-6 mx-3 w-fit px-2 font-bold ${
-                  +seeResturant?.avgRating >= 4
+                  +restaurantInfo?.avgRating >= 4
                     ? "bg-[#48c479]"
                     : "bg-[#db7c38]"
                 } text-white`}
@@ -47,14 +60,14 @@ const SelectResturant = () => {
                   <AiFillStar className="inline" />
                 </span>
                 <span className="align-baseline pl-1">
-                  {seeResturant?.avgRating}
+                  {restaurantInfo?.avgRating}
                 </span>
               </p>
             </div>
             <div className="">
               <img
                 className="ml-4 w-[400px]"
-                src={img_cdn_path + seeResturant?.cloudinaryImageId}
+                src={img_cdn_path + restaurantInfo?.cloudinaryImageId}
                 alt="resturant-image"
               />
             </div>
@@ -67,40 +80,47 @@ const SelectResturant = () => {
             data-testid="menu"
             className="flex justify-start items-center flex-wrap mt-4"
           >
-            {Object.values(seeResturant?.menu?.items).map((item) => {
+            {Object.values(cardTiles).map((item) => {
               return (
-                item?.cloudinaryImageId && (
+                item?.card?.info?.imageId && (
                   <div
                     className="flex justify-between items-center m-6 w-[420px] border rounded-md p-4 border-gray-300 hover:shadow-lg ease-in-out duration-300"
-                    key={item.id}
+                    key={item?.card?.info?.id}
                   >
                     <div className="">
                       <h4 className="m-1 text-sm font-bold text-black line-clamp-1">
-                        {item.name}
+                        {item?.card?.info?.name}
                       </h4>
                       <h5 className="m-1 text-sm font-medium text-gray-700">
-                        {item.category}
+                        {item?.card?.info?.category}
                       </h5>
                       <h6 className="m-1 text-sm font-medium text-gray-700">
-                        FoodType {item.isVeg == 1 ? "Veg" : "Non-Veg"}
+                        InStock -{" "}
+                        {item?.card?.info?.inStock == 1 ? "Yes" : "No"}
                       </h6>
                       <h6 className="m-1 text-sm font-medium text-gray-700">
-                        InStock - {item.inStock == 1 ? "Yes" : "No"}
+                        Rating -{" "}
+                        {item?.card?.info?.ratings?.aggregatedRating?.rating
+                          ? item?.card?.info?.ratings?.aggregatedRating?.rating
+                          : "4.1"}
                       </h6>
                       <h6 className="mx-1 my-2 text-base font-medium text-[#479f2c]">
-                        Price - {item.price / 100}
+                        Price -{" ₹"}
+                        {item?.card?.info?.price / 100
+                          ? item?.card?.info?.price / 100
+                          : "402"}
                       </h6>
                     </div>
                     <div className="flex flex-col w-[140px]">
                       <img
                         className="shadow-md shadow-slate-500"
-                        src={img_cdn_path + item.cloudinaryImageId}
+                        src={img_cdn_path + item?.card?.info?.imageId}
                         alt="menu-item-img"
                       />
                       <button
                         data-testid="addbtn"
                         className="bg-[#60b246] py-2 px-4 mx-auto rounded-md mt-3 text-sm text-white font-bold hover:bg-[#409f24]"
-                        onClick={() => addtoCart(item)}
+                        onClick={() => addtoCart(item?.card?.info)}
                       >
                         ADD
                       </button>

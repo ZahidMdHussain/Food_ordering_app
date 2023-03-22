@@ -16,6 +16,7 @@ const Cart = () => {
   const deleteCartItem = (id) => {
     dispatch(removeItems(id));
   };
+
   return cartItem.length === 0 ? (
     <div className="min-h-[70vh] bg-slate-100 m-8 rounded-lg shadow-xl shadow-slate-300 py-8 px-6 flex justify-center items-center flex-col">
       <img className="w-[500px] bg-center" src={emptyCart}></img>
@@ -50,26 +51,30 @@ const Cart = () => {
                     <div className="flex items-center">
                       <img
                         className="w-[130px] mx-2 bg-contain shadow-md"
-                        src={img_cdn_path + item?.cloudinaryImageId}
+                        src={img_cdn_path + item?.imageId}
                         alt="food-image"
                       />
                       <div className="ml-8 text-base font-medium text-slate-700">
                         <h2 className="text-xl font-semibold line-clamp-1">
                           {item?.name}
                         </h2>
-                        <h6 className="font-semibold">
-                          Type :{" "}
-                          {item?.isVeg == 1 ? (
+                        <h2 className="font-semibold">
+                          Category : {item?.category}
+                        </h2>
+                        <h6 className="font-semibold text-sm">
+                          Description : {item?.description}
+                          {/* {item?.isVeg == 1 ? (
                             <BiCheckboxSquare className="text-green-700 text-2xl inline" />
                           ) : (
                             <BiCaretUpSquare className="text-red-700 text-lg ml-1 inline" />
-                          )}
+                          )} */}
                         </h6>
                         <h6 className="inline font-semibold">
                           InStock - {item?.inStock == 1 ? "Yes" : "No"}
                         </h6>
                         <h6 className="inline mx-4 font-semibold">
-                          Price &nbsp; ₹ {item?.price / 100}
+                          Price -{" ₹"}
+                          {item?.price / 100 ? item?.price / 100 : "402"}
                         </h6>
                       </div>
                     </div>

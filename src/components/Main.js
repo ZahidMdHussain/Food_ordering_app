@@ -21,10 +21,11 @@ function Main() {
   async function getApiData() {
     const data = await fetch(RESTURANT_API);
     const json = await data.json();
-    setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurant(json?.data?.cards);
+    setAllRestaurant(json?.data?.cards);
+    // setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    // setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
-
   const isOnline = useOnline();
   return !isOnline ? (
     <div className="min-h-[60vh] flex flex-col justify-center items-center">
@@ -79,10 +80,10 @@ function Main() {
               return (
                 <Link
                   className=""
-                  to={"/restaurants/" + each_resturant?.data?.id}
-                  key={each_resturant?.data?.id}
+                  to={"/restaurants/" + each_resturant?.data?.data?.id}
+                  key={each_resturant?.data?.data?.id}
                 >
-                  <Card {...each_resturant?.data} />
+                  <Card {...each_resturant?.data?.data} />
                 </Link>
               );
             })}

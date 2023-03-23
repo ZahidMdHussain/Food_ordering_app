@@ -23,8 +23,6 @@ function Main() {
     const json = await data.json();
     setFilteredRestaurant(json?.data?.cards);
     setAllRestaurant(json?.data?.cards);
-    // setFilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
-    // setAllRestaurant(json?.data?.cards[2]?.data?.data?.cards);
   }
   const isOnline = useOnline();
   return !isOnline ? (
@@ -35,7 +33,7 @@ function Main() {
       </h2>
     </div>
   ) : !allRestaurants ? null : (
-    <div className="bg-[#F4F6F7] p-8 mt-1">
+    <div className="bg-[#F4F6F7] p-2 sm:p-8 mt-1">
       <div className="flex justify-between items-center pb-4 border-b border-[#ccc]">
         <p className="font-fsans text-xl font-bold text-[#858282]">
           Top restaurants of day
@@ -74,7 +72,7 @@ function Main() {
         ) : (
           <div
             data-testid="resturantLists"
-            className="mx-6 my-4 flex justify-start items-center flex-wrap font-bserif"
+            className="mx-4 sm:mx-6 my-4 flex justify-center xl:justify-start items-center flex-wrap font-bserif"
           >
             {filteredRestaurants.map((each_resturant) => {
               return (

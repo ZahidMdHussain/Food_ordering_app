@@ -11,7 +11,7 @@ const SelectResturant = () => {
   const { id } = useParams();
   const seeResturant = useResturant(id);
   const dispatch = useDispatch();
-  var recom = 0;
+  let recom = 5;
 
   const addtoCart = (item) => {
     dispatch(additem(item));
@@ -21,7 +21,6 @@ const SelectResturant = () => {
       if (i.card.card.title == "Recommended") {
         recom = index;
       }
-      return i;
     }
   );
   const cardTiles =

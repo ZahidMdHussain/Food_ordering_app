@@ -56,14 +56,14 @@ export const ResturantShimmer = () => {
 const ShimmerCard = () => {
   return (
     <>
-      <div className="m-4 w-[300px] p-4 border border-[#ccc]">
-        <div className="w-full h-[120px] mb-4 bg-[#e0dede]"></div>
-        <div className="w-full h-[40px] bg-[#e0dede]"></div>
-        <div className="mt-3 w-[80%] h-[25px] bg-[#e0dede]"></div>
+      <div className="w-full sm:flex-col m-3 p-3 sm:m-4 sm:w-[300px] sm:p-4 border border-[#ccc] animate-pulse">
+        <div className="w-full h-[100px] sm:h-[120px] mb-4 bg-[#e0dede]"></div>
+        <div className="w-full h-[30px] sm:h-[40px] bg-[#e0dede]"></div>
+        <div className="mt-3 w-[80%] h-[18px] sm:h-[25px] bg-[#e0dede]"></div>
         <div className="w-full h-[40px] py-4 flex justify-between items-center border-b border-[#ccc] mt-3">
-          <div className="w-[20%] h-6 bg-[#e0dede]"></div>
-          <div className="w-[20%] h-6 bg-[#e0dede]"></div>
-          <div className="w-[20%] h-6 bg-[#e0dede]"></div>
+          <div className="w-[20%] h-4 sm:h-6 bg-[#e0dede]"></div>
+          <div className="w-[20%] h-4 sm:h-6 bg-[#e0dede]"></div>
+          <div className="w-[20%] h-4 sm:h-6 bg-[#e0dede]"></div>
         </div>
         <div className="mt-3 w-full h-6 bg-[#e0dede]"></div>
       </div>
@@ -75,7 +75,7 @@ const Shimmer = () => {
   return (
     <>
       <div
-        className="flex justify-center items-center mx-8"
+        className="flex justify-center items-center mx-4 sm:mx-8 w-full flex-wrap"
         data-testid="shimmer-ui"
       >
         <ShimmerCard />

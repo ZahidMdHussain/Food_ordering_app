@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
 import userContext from "../utils/LoginContext";
 import { useSelector } from "react-redux";
+import { GoHome } from "react-icons/go";
+import { BsCartCheck } from "react-icons/bs";
+import { FiUser, FiHelpCircle } from "react-icons/fi";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -19,7 +22,7 @@ function Header() {
           <img data-testid="logo" className="py-1" src={logo} alt="app-logo" />
         </div>
       </Link>
-      <div className="flex items-center">
+      <div className="hidden md:flex items-center">
         <ul className="flex list-none">
           <li className="px-2">
             <Link
@@ -63,6 +66,61 @@ function Header() {
           </li>
         </ul>
       </div>
+      <div className="flex items-center justify-between fixed bottom-0 left-0 bg-white w-full p-2 shadow-2xl shadow-gray-200 md:hidden border-t-4 border-gray-200">
+        <ul className="flex list-none w-full justify-between items-center">
+          <li className="px-2">
+            <Link
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              to="/"
+            >
+              <GoHome className="mr-1" />
+              Home
+            </Link>
+          </li>
+          <li className="px-2">
+            <Link
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              to="/about "
+            >
+              <FiUser className="mr-1" />
+              About
+            </Link>
+          </li>
+          <li className="px-2">
+            <Link
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              to="/help"
+            >
+              <FiHelpCircle className="mr-1" />
+              Help
+            </Link>
+          </li>
+          <li className="pl-2">
+            <Link
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              to="/cart"
+            >
+              <BsCartCheck className="mr-1" />
+              Cart
+              <span
+                data-testid="cart"
+                className="bg-[#60b246] mx-1 px-1 text-xs font-medium text-white align-top rounded-md"
+              >
+                {cartItems.length}
+              </span>
+            </Link>
+          </li>
+          {/* <li>
+            <span
+              data-testid="cart"
+              className="bg-[#60b246] px-[4] text-xs font-bold text-white align-top rounded-md"
+            >
+              {cartItems.length}
+            </span>
+          </li> */}
+        </ul>
+      </div>
+
       <div>
         {/* <h2>{login.username}</h2> */}
         {isLoggedIn ? (

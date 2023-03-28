@@ -34,22 +34,27 @@ function Main() {
     </div>
   ) : !allRestaurants ? null : (
     <div className="bg-[#F4F6F7] p-2 sm:p-8 mt-1">
-      <div className="flex justify-between items-center pb-4 border-b border-[#ccc]">
-        <p className="font-fsans text-xl font-bold text-[#858282]">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center pb-4 border-b border-[#ccc]">
+        <p className="mt-4 md:mt-0 text-2xl  font-fsans md:text-xl font-bold text-[#858282]">
           Top restaurants of day
         </p>
         <div>
           <input
-            className="border border-[#85929E] p-2 rounded-lg focus:outline-none"
+            className="lg:w-[300px] border border-[#85929E] p-2 rounded-lg focus:outline-none"
             data-testid="searchInput"
             type="text"
-            placeholder="Search here.."
+            placeholder="Search favourite food here.."
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
+              const filteredRestaurants = filterSerachCard(
+                e.target.value,
+                allRestaurants
+              );
+              setFilteredRestaurant(filteredRestaurants);
             }}
           />
-          <button
+          {/* <button
             className="p-2 border rounded-lg border-[#85929E] ml-1 font-semibold hover:bg-[#60b246] hover:text-white hover:cursor-pointer hover:shadow-md ease-in-out duration-300"
             data-testid="checkSearch"
             onClick={() => {
@@ -61,7 +66,7 @@ function Main() {
             }}
           >
             Search
-          </button>
+          </button> */}
         </div>
       </div>
       <div className="bg-white mt-4 flex justify-start items-center min-h-[500px] font-bserif shadow-lg rounded-md shadow-slate-400">

@@ -23,7 +23,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <userContext.Provider value={{ login: user, setlogin: setUser }}>
-        <div className="h-[100vh] overflow-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-[#60b246] scrollbar-track-green-200">
+        <div className="h-[100vh] overflow-auto scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-[#60b246] scrollbar-track-green-100">
           <Header />
           <Outlet />
           <Footer />

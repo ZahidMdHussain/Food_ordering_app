@@ -66,48 +66,50 @@ function Header() {
           </li>
         </ul>
       </div>
-      <div className="flex items-center justify-between fixed bottom-0 left-0 bg-white w-full p-2 shadow-2xl shadow-gray-200 md:hidden border-t-4 border-gray-200">
+      <div className="flex items-center justify-between fixed bottom-0 left-0 z-20 bg-white w-full p-2 shadow-2xl shadow-gray-200 md:hidden border-t-4 border-green-100">
         <ul className="flex list-none w-full justify-between items-center">
           <li className="px-2">
             <Link
-              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center flex-col text-base sm:text-lg"
               to="/"
             >
-              <GoHome className="mr-1" />
-              Home
+              <GoHome className="mr-1 text-lg" />
+              <p className="text-xs"> Home </p>
             </Link>
           </li>
           <li className="px-2">
             <Link
-              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center flex-col text-base sm:text-lg"
               to="/about "
             >
-              <FiUser className="mr-1" />
-              About
+              <FiUser className="mr-1 text-lg" />
+              <p className="text-xs">About</p>
             </Link>
           </li>
           <li className="px-2">
             <Link
-              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center flex-col text-base sm:text-lg"
               to="/help"
             >
-              <FiHelpCircle className="mr-1" />
-              Help
+              <FiHelpCircle className="mr-1 text-lg" />
+              <p className="text-xs">Help</p>
             </Link>
           </li>
           <li className="pl-2">
             <Link
-              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center text-base sm:text-lg"
+              className="text-[#ff4057] px-2 outline-none focus:outline-none flex items-center flex-col text-base sm:text-lg"
               to="/cart"
             >
-              <BsCartCheck className="mr-1" />
-              Cart
-              <span
-                data-testid="cart"
-                className="bg-[#60b246] mx-1 px-1 text-xs font-medium text-white align-top rounded-md"
-              >
-                {cartItems.length}
-              </span>
+              <BsCartCheck className="mr-1 text-lg" />
+              <p className="text-xs">
+                Cart
+                <span
+                  data-testid="cart"
+                  className="bg-[#60b246] mx-1 px-[2px] text-[8px] text-white rounded-md"
+                >
+                  {cartItems.length}
+                </span>
+              </p>
             </Link>
           </li>
           {/* <li>

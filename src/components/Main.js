@@ -33,7 +33,7 @@ function Main() {
       </h2>
     </div>
   ) : !allRestaurants ? null : (
-    <div className="bg-[#F4F6F7] p-2 sm:p-8 mt-1">
+    <div className="bg-[#F4F6F7] py-2 sm:p-8 mt-1">
       <div className="flex flex-col-reverse md:flex-row justify-between items-center pb-4 border-b border-[#ccc]">
         <p className="mt-4 md:mt-0 text-2xl  font-fsans md:text-xl font-bold text-[#858282]">
           Top restaurants of day
@@ -77,7 +77,7 @@ function Main() {
         ) : (
           <div
             data-testid="resturantLists"
-            className="mx-4 sm:mx-6 my-4 flex justify-center xl:justify-start items-center flex-wrap font-bserif"
+            className="mx-4 w-full my-4 flex justify-center items-center flex-wrap font-bserif"
           >
             {filteredRestaurants.map((each_resturant) => {
               return (

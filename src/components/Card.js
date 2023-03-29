@@ -10,7 +10,7 @@ function Card({
   costForTwoString,
 }) {
   return (
-    <div className="my-4 mx-2 sm:mx-6 w-full sm:w-[80vw] md:max-w-[300px] px-4 pt-4 border lg:border-white no-underline text-black shadow-md lg:hover:border-[#ccc] lg:hover:shadow-md font-fsans">
+    <div className="my-4 mx-2  max-w-[300px] sm:max-w-[350px]  md:max-w-[300px] px-4 pt-4 border lg:border-white no-underline text-black shadow-md lg:hover:border-[#ccc] lg:hover:shadow-md font-fsans group">
       <img
         className="w-full mb-4 shadow-lg"
         src={img_cdn_path + cloudinaryImageId}
@@ -36,7 +36,7 @@ function Card({
       </div>
       <p className="w-full text-center font-fsans">
         <span
-          className="block py-4 text-[#38a4eb] no-underline font-bold text-base hover:text-[#48c479]"
+          className="block py-4 text-[#38a4eb] no-underline font-bold text-base group-hover:text-[#48c479]"
           href="#"
         >
           QUICK VIEW

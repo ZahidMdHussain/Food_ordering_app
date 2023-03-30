@@ -11,13 +11,13 @@ export const NoRestaurant = () => {
 const ResturantsTabs = () => {
   return (
     <>
-      <div className="flex justify-between items-center my-6 mx-4 w-[420px] border border-[#ccc] rounded-lg p-4">
+      <div className="flex justify-between items-center my-6 mx-4 w-[300px] lg:w-[420px] border border-[#ccc] rounded-lg p-4 animate-pulse">
         <div className="">
-          <div className="m-2 bg-[#e0dede] w-[250px] h-[15px]"></div>
-          <div className="m-2 bg-[#e0dede] w-[150px] h-[12px]"></div>
+          <div className="m-2 bg-[#e0dede] w-[170px] lg:w-[250px] h-[15px]"></div>
+          <div className="m-2 bg-[#e0dede] w-[130px] lg:w-[150px] h-[12px]"></div>
           <div className="m-2 bg-[#e0dede] w-[100px] h-[10px]"></div>
         </div>
-        <div className="w-[100px] h-[70px] bg-[#e0dede]"></div>
+        <div className="w-[80px] h-[50px] lg:w-[100px] lg:h-[70px] bg-[#e0dede]"></div>
       </div>
     </>
   );
@@ -27,15 +27,15 @@ export const ResturantShimmer = () => {
   return (
     <>
       <div className="bg-white px-6 py-4 my-8 mx-4 rounded-md shadow-lg">
-        <div className="flex justify-between items-center py-8 px-4">
-          <div className="ml-4">
-            <div className="bg-[#e0dede] m-3 w-[350px] h-[35px]"></div>
+        <div className="flex flex-col-reverse md:flex-row  justify-between items-center py-8 px-4 animate-pulse">
+          <div className="ml-4 mt-8 md:mt-0">
+            <div className="bg-[#e0dede] m-3 w-[300px] sm:w-[350px] h-[35px]"></div>
             <div className="bg-[#e0dede] m-3 w-[250px] h-[26px]"></div>
             <div className="bg-[#e0dede] m-3 w-[120px] h-[20px]"></div>
             <div className="bg-[#e0dede] m-3 w-[100px] h-[18px]"></div>
           </div>
-          <div className="">
-            <div className="mr-5 w-[350px] h-[200px] bg-[#e0dede]"></div>
+          <div className="ml-4 md:ml-0">
+            <div className="mr-5 w-[300px] lg:w-[350px] h-[200px] bg-[#e0dede]"></div>
           </div>
         </div>
         <div className="flex justify-evenly items-center flex-wrap mt-4">

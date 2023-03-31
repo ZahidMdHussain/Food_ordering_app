@@ -1,32 +1,34 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { img_cdn_path } from "../confiq";
 import { ResturantShimmer } from "./Shimmer";
 import useResturant from "../utils/useResturant";
-import { additem } from "../utils/cartSlice";
-import { useDispatch } from "react-redux";
 import ResturantInfo from "./ResturantInfo";
 import DishMenu from "./DishMenu";
 
 const SelectResturant = () => {
   const { id } = useParams();
   const seeResturant = useResturant(id);
-  const dispatch = useDispatch();
+
+  // Variable to filter out indexes
+  let itemIndex = 0;
   let recom = 5;
 
-  const addtoCart = (item) => {
-    dispatch(additem(item));
-  };
-  seeResturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map(
+  // Finding the index of restaurant menu items
+  seeResturant?.cards.map((item, index) => {
+    if (item.groupedCard) itemIndex = index;
+  });
+
+  // Finding the sub-index of recommended menu item from restaurant
+  seeResturant?.cards[itemIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map(
     (i, index) => {
-      if (i.card.card.title == "Recommended") {
-        recom = index;
-      }
+      if (i.card.card.title == "Recommended") recom = index;
     }
   );
+
   const cardTiles =
-    seeResturant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[recom]
-      ?.card?.card?.itemCards;
+    seeResturant?.cards[itemIndex]?.groupedCard?.cardGroupMap?.REGULAR?.cards[
+      recom
+    ]?.card?.card?.itemCards;
   const restaurantInfo = seeResturant?.cards[0]?.card?.card?.info;
 
   return !cardTiles ? (
@@ -45,7 +47,11 @@ const SelectResturant = () => {
             className="flex justify-center lg:justify-start items-center flex-wrap mt-4"
           >
             {Object.values(cardTiles).map((item) => {
-              return item?.card?.info?.imageId && <DishMenu item={item} />;
+              return (
+                item?.card?.info?.imageId && (
+                  <DishMenu key={item?.card?.info?.id} item={item} />
+                )
+              );
             })}
           </div>
         </div>

@@ -1,12 +1,15 @@
 import React from "react";
 import { img_cdn_path } from "../confiq";
+import { additem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
 const DishMenu = ({ item }) => {
+  const dispatch = useDispatch();
+  const addtoCart = (item) => {
+    dispatch(additem(item));
+  };
   return (
-    <div
-      className="flex flex-col-reverse sm:flex-row sm:justify-between items-center m-4 lg:m-6 w-[350px] lg:w-[400px] xl:w-[420px] border rounded-md p-4 border-gray-300 hover:shadow-lg ease-in-out duration-300"
-      key={item?.card?.info?.id}
-    >
+    <div className="flex flex-col-reverse sm:flex-row sm:justify-between items-center m-4 lg:m-6 w-[350px] lg:w-[400px] xl:w-[420px] border rounded-md p-4 border-gray-300 hover:shadow-lg ease-in-out duration-300">
       <div className="mt-3 sm:mt-0 w-full sm:w-fit">
         <h4 className="m-1 text-sm font-bold text-black line-clamp-1">
           {item?.card?.info?.name}

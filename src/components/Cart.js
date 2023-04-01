@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCart, removeItems } from "../utils/cartSlice";
 import { BiCheckboxSquare, BiCaretUpSquare } from "react-icons/bi";
 import emptyCart from "../img/emptycart.png";
+import CartItems from "./CartItems";
 
 const Cart = () => {
   const cartItem = useSelector((store) => store.cart.items);
@@ -42,51 +43,7 @@ const Cart = () => {
         <div className="grid grid-flow-col grid-cols-7">
           <div data-testid="cartBox" className="p-8 mt-2 col-span-5">
             {cartItem.map((item) => {
-              return (
-                <>
-                  <div
-                    className="flex justify-between items-center p-6 border my-3 border-slate-300 rounded-md"
-                    key={item?.id}
-                  >
-                    <div className="flex items-center">
-                      <img
-                        className="w-[130px] mx-2 bg-contain shadow-md"
-                        src={img_cdn_path + item?.imageId}
-                        alt="food-image"
-                      />
-                      <div className="ml-8 text-base font-medium text-slate-700">
-                        <h2 className="text-xl font-semibold line-clamp-1">
-                          {item?.name}
-                        </h2>
-                        <h2 className="font-semibold">
-                          Category : {item?.category}
-                        </h2>
-                        <h6 className="font-semibold text-sm">
-                          Description : {item?.description}
-                          {/* {item?.isVeg == 1 ? (
-                            <BiCheckboxSquare className="text-green-700 text-2xl inline" />
-                          ) : (
-                            <BiCaretUpSquare className="text-red-700 text-lg ml-1 inline" />
-                          )} */}
-                        </h6>
-                        <h6 className="inline font-semibold">
-                          InStock - {item?.inStock == 1 ? "Yes" : "No"}
-                        </h6>
-                        <h6 className="inline mx-4 font-semibold">
-                          Price -{" ₹"}
-                          {item?.price / 100 ? item?.price / 100 : "402"}
-                        </h6>
-                      </div>
-                    </div>
-                    <button
-                      className="bg-[#60b246] p-2 mr-6 text-white hover:shadow-md"
-                      onClick={() => deleteCartItem(item?.id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </>
-              );
+              return <CartItems item={item} />;
             })}
           </div>
           {cartItem.length === 0 ? null : (

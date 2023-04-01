@@ -5,6 +5,7 @@ import restru from "../img/firstRestru.jpg";
 import linked from "../img/lin.png";
 import gitImg from "../img/git.png";
 import tweet from "../img/tweet.png";
+import profile from "../img/profile.jpg";
 
 const About = () => {
   const { login } = useContext(userContext);
@@ -13,8 +14,8 @@ const About = () => {
     <>
       <div className="">
         <div className="bg-center bg-contain bg-no-repeat relative">
-          <div className="absolute z-10 bottom-6 w-full">
-            <h1 className=" text-white text-5xl text-center font-fsans font-bold drop-shadow-2xl shadow-yellow-300">
+          <div className="absolute z-10 bottom-11 w-full">
+            <h1 className=" text-white text-3xl md:text-5xl text-center font-fsans font-bold drop-shadow-2xl shadow-yellow-300">
               Better food for more people
             </h1>
             <p className="text-white text-center animate-bounce">
@@ -22,16 +23,16 @@ const About = () => {
             </p>
           </div>
           <img
-            className="relative h-[90vh] w-full"
+            className="object-cover lg:object-fill  object-center relative h-[90vh] w-full"
             src={aboutCover}
             alt="about-cover"
           />
         </div>
-        <div className="flex justify-evenly mx-28 mt-12 py-8 shadow-slate-400 shadow-xl rounded-lg">
-          <div className="w-1/2">
-            <h1 className="text-4xl">who are we ?</h1>
+        <div className="flex flex-col-reverse lg:flex-row justify-evenly items-center mx-1 sm:mx-10 mt-5 sm:mt-12 px-2 py-8 shadow-slate-400 shadow-xl rounded-lg">
+          <div className="w-full lg:w-1/2 mt-4 lg:mt-0 ">
+            <h1 className="text-2xl md:text-4xl">who are we ?</h1>
             <div className="my-2 w-16 h-1 bg-red-600"></div>
-            <h2 className="mt-6 font-light text-slate-600">
+            <h2 className="mt-6 text-sm md:text-base font-light text-slate-600">
               Our technology platform connects customers, restaurant partners
               and delivery partners, serving their multiple needs. Customers use
               our platform to search and discover restaurants, read and write
@@ -49,19 +50,19 @@ const About = () => {
           </div>
 
           <img
-            className="w-[500px] rounded-md"
+            className="w-[400px] lg:w-[500px] lg:h-[350px] rounded-md"
             src={restru}
             alt="fisrt-Resturant"
           />
         </div>
 
         <div className="relative">
-          <div className="flex justify-between items-center mx-28 my-12 py-4 px-12 rounded-lg border-1 border-gray-400 shadow-slate-400 shadow-xl">
-            <div className="w-1/2 ">
+          <div className="flex flex-col-reverse sm:flex-row justify-around items-center mx-1 sm:mx-10 mt-5 sm:mt-12 px-2 py-8 my-12 rounded-lg border-1 border-gray-400 shadow-slate-400 shadow-xl">
+            <div className="w-full sm:w-1/2 mt-4 lg:mt-0 ">
               <h1 className="text-3xl font-fsans mb-2 text-red-700">
                 Md. Zahid Hussain
               </h1>
-              <p className=" ml-2 mt-4 text-slate-600">
+              <p className=" ml-2 mt-4 text-sm md:text-base text-slate-600">
                 I’m a frontend developer who has turned years of freelancing
                 into a full-time career. Being a frontend developer allows me to
                 not only develop client-facing apps and websites but also
@@ -94,13 +95,13 @@ const About = () => {
 
             <div className="w-52">
               <img
-                className="rounded-full bg-right bg-no-repeat shadow-md"
-                src="https://pbs.twimg.com/profile_images/1462050931420266501/AElTWGJ5_400x400.jpg"
+                className="rounded-full bg-no-repeat shadow-lg shadow-slate-500"
+                src={profile}
                 alt=""
               />
             </div>
           </div>
-          <div className=" mx-28 w-fit bg-red-600 text-center text-white font-bold text-sm absolute px-2 top-1">
+          <div className="left-2 top-2 sm:left-12 w-fit bg-red-600 text-center text-white font-bold text-sm absolute px-2">
             Founder
           </div>
         </div>

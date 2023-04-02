@@ -11,7 +11,7 @@ const SelectResturant = () => {
 
   // Variable to filter out indexes
   let itemIndex = 0;
-  let recom = 5;
+  let recom = 3;
 
   // Finding the index of restaurant menu items
   seeResturant?.cards.map((item, index) => {

@@ -41,7 +41,7 @@ const DishMenu = ({ item }) => {
         />
         <button
           data-testid="addbtn"
-          className="bg-[#60b246] py-2 px-4 mx-auto rounded-md mt-6 sm:mt-3 text-sm text-white font-bold hover:bg-[#409f24]"
+          className="bg-[#60b246] py-2 px-4 mx-auto mt-6 sm:mt-3 text-sm text-white font-bold hover:bg-[#409f24]"
           onClick={() => addtoCart(item?.card?.info)}
         >
           ADD

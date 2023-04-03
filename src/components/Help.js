@@ -35,7 +35,7 @@ const Help = () => {
   });
   return (
     <>
-      <div className="bg-[#00A86B] min-h-[500px] p-6 sm:p-12">
+      <div className="bg-gradient-to-r from-[#0BAB64] to-[#3BB78F] min-h-[500px] p-6 sm:p-12">
         <div className="sm:mx-8">
           <div className="sm:mx-6 my-4 mb-6 text-white">
             <h1 className="text-2xl sm:text-3xl font-bold">Help & Support</h1>

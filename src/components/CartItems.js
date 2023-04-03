@@ -11,17 +11,17 @@ const CartItems = ({ item }) => {
 
   return (
     <div
-      className="flex justify-between items-center p-6 border my-3 border-slate-300 rounded-md"
+      className="flex flex-col lg:flex-row justify-between items-center py-6 px-3 sm:p-6 border my-3 border-slate-300 rounded-md"
       key={item?.id}
     >
-      <div className="flex items-center">
+      <div className="flex flex-col lg:flex-row justify-center items-center">
         <img
-          className="w-[130px] mx-2 bg-contain shadow-lg"
+          className="w-[60%] lg:w-[130px] mx-2 bg-contain shadow-lg"
           src={img_cdn_path + item?.imageId}
           alt="food-image"
         />
-        <div className="ml-8 text-base font-medium text-slate-700">
-          <h2 className="text-xl font-semibold line-clamp-1 text-[#60b246]">
+        <div className="ml-0 mt-4 lg:mt-0 lg:ml-8 text-base font-medium text-slate-700">
+          <h2 className="text-xl text-center lg:text-left font-semibold line-clamp-1 text-[#60b246]">
             {item?.name}
           </h2>
           <h2 className="font-semibold text-neutral-500">
@@ -40,7 +40,7 @@ const CartItems = ({ item }) => {
         </div>
       </div>
       <button
-        className="bg-[#60b246] p-2 mr-6 text-white hover:shadow-md"
+        className="bg-[#60b246] p-2 mt-4 lg:mt-0 mr-6 text-white hover:shadow-md"
         onClick={() => deleteCartItem(item?.id)}
       >
         Remove

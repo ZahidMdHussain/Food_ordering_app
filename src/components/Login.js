@@ -8,14 +8,14 @@ const Login = () => {
 
   return (
     <>
-      <div className="min-h-[59vh] flex justify-center items-center bg-[#0e7490]">
-        <div className="bg-[#f4f9fd] max-w-[60vw] grid grid-flow-col grid-cols-9">
-          <div className="col-span-5 p-4 flex flex-col justify-center items-center font-fsans">
-            <h2 className="text-2xl font-bold my-4 text-[#0e7490]">Log In</h2>
+      <div className="min-h-[59vh] flex justify-center items-center bg-gradient-to-r from-[#0BAB64] to-[#3BB78F]">
+        <div className="bg-[#f4f9fd] mx-4 w-full sm:max-w-[60vw] 2xl:max-w-[800px]  grid grid-flow-col grid-cols-12">
+          <div className="col-span-12 md:col-span-7 p-4 flex flex-col justify-center items-center font-fsans">
+            <h2 className="text-2xl font-bold my-4 text-[#3BB78F]">Log In</h2>
             <form className=" py-5 w-full text-center">
               <div className="my-4">
                 <input
-                  className="px-4 py-2 text-base border w-2/3 rounded-full focus:outline focus:outline-[#0e7490]"
+                  className="px-4 py-2 text-sm md:text-base border w-full md:w-2/3 rounded-full focus:outline focus:outline-[#3BB78F]"
                   onChange={(e) => {
                     setlogin({
                       username: e.target.value,
@@ -28,7 +28,7 @@ const Login = () => {
               </div>
               <div className="my-4">
                 <input
-                  className="px-4 py-2 text-base border w-2/3 rounded-full focus:outline focus:outline-[#0e7490]"
+                  className="px-4 py-2 text-sm md:text-base border w-full md:w-2/3 rounded-full focus:outline focus:outline-[#3BB78F]"
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -43,7 +43,7 @@ const Login = () => {
                   to="/"
                 >
                   <button
-                    className="px-4 py-2 text-lg border-0 w-2/3 rounded-full bg-[#0e7490] text-white outline-0 focus:outline border-transparent focus:border-transparent focus:ring-0 hover:bg-[#105467]"
+                    className="px-4 py-2 text-lg border-0 w-full md:w-2/3 rounded-full bg-[#3BB78F] text-white outline-0 focus:outline border-transparent focus:border-transparent focus:ring-0 hover:bg-[#0BAB64]"
                     type="submit"
                   >
                     LogIn
@@ -52,11 +52,11 @@ const Login = () => {
               </div>
               <p className="mt-7 text-xs font-thin text-slate-400">
                 Don't have an account?{" "}
-                <span className="text-[#0e7490]">Register</span>
+                <span className="text-[#0BAB64]">Register</span>
               </p>
             </form>
           </div>
-          <div className="bg-[#ffffff] col-span-4 flex items-center">
+          <div className="bg-[#ffffff] md:col-span-5 md:items-center hidden md:flex">
             <img src={login_img} alt="login_banner" />
           </div>
         </div>
